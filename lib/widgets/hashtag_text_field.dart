@@ -25,7 +25,6 @@ export 'package:flutter/services.dart'
 typedef InputCounterWidgetBuilder = Widget? Function(
   /// The build context for the TextField.
   BuildContext context, {
-
   /// The length of the string currently in the input.
   required int currentLength,
 
@@ -85,7 +84,7 @@ class _TextFieldSelectionGestureDetectorBuilder
   }
 
   @override
-  void onSingleTapUp(TapUpDetails details) {
+  void onSingleTapUp(TapDragUpDetails details) {
     editableText.hideToolbar();
     if (delegate.selectionEnabled) {
       switch (Theme.of(_state.context).platform) {
@@ -95,6 +94,7 @@ class _TextFieldSelectionGestureDetectorBuilder
             case PointerDeviceKind.mouse:
             case PointerDeviceKind.stylus:
             case PointerDeviceKind.invertedStylus:
+            case PointerDeviceKind.trackpad:
               // Precise devices should place the cursor at a precise position.
               renderEditable.selectPosition(cause: SelectionChangedCause.tap);
               break;
