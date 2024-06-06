@@ -104,6 +104,9 @@ class _TextFieldSelectionGestureDetectorBuilder
               // of the word.
               renderEditable.selectWordEdge(cause: SelectionChangedCause.tap);
               break;
+            case PointerDeviceKind.trackpad:
+              // TODO: Handle this case.
+              break;
           }
           break;
         case TargetPlatform.android:
